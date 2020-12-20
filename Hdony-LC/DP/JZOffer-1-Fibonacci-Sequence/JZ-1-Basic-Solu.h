@@ -28,8 +28,7 @@ public:
         return dfs(n - 1) + dfs(n - 2);
     }
 
-    void test_case() {
-        int n = 40; // 大约 1 秒左右
+    void test_case(int n = 40) {
         time_t start = clock();
         int res = fib(n);
         time_t end = clock();
@@ -53,14 +52,13 @@ public:
         if (n == 0) return 0;
         if (n == 1) return 1;
 
-        if (memo[n] == -1) // 表示之前未计算过
+        if (memo[n] == -1) // 表示之前未计算过；设置为 -1 的原因在于 memo[i] 永远不会被赋值为 -1
             memo[n] = dfs(n - 1) + dfs(n - 2);
 
         return memo[n];
     }
 
-    void test_case() {
-        int n = 40;
+    void test_case(int n = 40) {
         time_t start = clock();
         int res = fib(n);
         time_t end = clock();
@@ -68,3 +66,25 @@ public:
         cout << "Time = " << double(end - start) / CLOCKS_PER_SEC << endl;
     }
 };
+
+// 动态规划（用一个数组记录重复计算的内容--重叠子问题）
+class Fibonacci_DP {
+public:
+    int fib(int n) {
+        vector<int> memo(n + 1, -1);
+        memo[0] = 0;
+        memo[1] = 1;
+        for (int i = 2; i <= n; i ++)
+            memo[i] = memo[i - 1] + memo[i - 2];
+        return memo[n];
+    }
+
+    void test_case(int n = 0) {
+        time_t start = clock();
+        int res = fib(n);
+        time_t end = clock();
+        cout << "Result = " << res << endl;
+        cout << "Time = " << double(end - start) / CLOCKS_PER_SEC << endl;
+    }
+};
+
