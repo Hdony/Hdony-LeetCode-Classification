@@ -60,7 +60,7 @@ public:
     }
 
     void test_case() {
-        int n = 40; // 大约 1 秒左右
+        int n = 40;
         time_t start = clock();
         int res = fib(n);
         time_t end = clock();
