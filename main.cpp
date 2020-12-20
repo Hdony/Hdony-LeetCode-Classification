@@ -9,7 +9,12 @@ int main() {
 
     ClimbingStairs climbingStairs;
     climbingStairs.test_case();
-    climbingStairs.test_case(3);
+
+//    ClimbingStairs_Memo climbingStairs_Memo;
+//    climbingStairs_Memo.test_case();
+
+    ClimbingStairs_DP climbingStairs_DP;
+    climbingStairs_DP.test_case();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;

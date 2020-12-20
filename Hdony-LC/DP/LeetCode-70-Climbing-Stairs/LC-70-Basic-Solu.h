@@ -50,7 +50,7 @@ public:
     vector<int> memo; // memo[i] 爬上 i 个台阶一共有多少种不同的方法
     int climbStairs(int n) {
 
-        memo = vector<int>(n + 1, -1);
+        memo = vector<int>(n + 1, 0); // memo[0] 表示爬上 0 个台阶有 0 种方法
         return dfs(n);
     }
 
@@ -59,7 +59,7 @@ public:
         if (n == 1) return 1;
         if (n == 2) return 2;
 
-        if (memo[n] == -1)
+        if (memo[n] == 0)
             memo[n] = dfs(n - 1) + dfs(n - 2);
 
         return memo[n];
@@ -76,17 +76,18 @@ public:
 };
 
 // 动态规划
+// O(n), O(n)
 class ClimbingStairs_DP {
 public:
     int climbStairs(int n) {
 
-        vector<int> memo(n + 1, -1);
+        vector<int> memo(n + 1, 0);
 
         memo[1] = 1;
         memo[2] = 2;
 
         for (int i = 3; i <= n; i ++)
-            memo[n] = memo[n - 1] + memo[n - 2];
+            memo[i] = memo[i - 1] + memo[i - 2];
 
         return memo[n];
     }
@@ -101,7 +102,36 @@ public:
     }
 };
 
+// 状态压缩
+// O(n), O(1)
+class ClimbingStairs_DP_Compress {
+public:
+    int climbStairs(int n){
+        if(n <= 1)
+            return n;
 
+        int oneStep = 1; // 当前状态下，再爬 1 个台阶，共有 1 种方法
+        int twoStep = 2; // 当前状态下，再爬 2 个台阶，共有 2 种方法
+        int curWays;
+
+        for (int i = 3; i <= n; i ++) {
+            curWays = oneStep + twoStep; // 当前状态是从状态 oneStep 或 twoStep 得到的
+            oneStep = twoStep; // 下一个状态一定是通过 twoStep 和 curWays 得到的，故进行变量替换
+            twoStep = curWays;
+        }
+
+        return curWays;
+    }
+
+    // 爬 35 个台阶
+    void test_case(int n = 35) {
+        time_t start = clock();
+        int res = climbStairs(n);
+        time_t end = clock();
+        cout << "Result = " << res << endl;
+        cout << "Time = " << double(end - start) / CLOCKS_PER_SEC << endl;
+    }
+};
 
 
 
