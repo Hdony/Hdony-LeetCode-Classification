@@ -36,13 +36,13 @@
 
 
 
+
+### 7. Array
+
+
 ### Reference
 [liuyubobobo](https://github.com/liuyubobobo/Play-Leetcode)
 
-
-
-
-### 7. Array
 
 
 
