@@ -83,12 +83,15 @@ public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
         // dp[i][j] 表示从点 (i, j) 到底边的最小路径和
-        // dp[n][j] 将最底层（索引为 n ）初始化为 0
+        // dp[n][j] 将最底层（索引为 n）初始化为 0
         vector<vector<int>> dp(n + 1, vector<int>(n, 0));
 
         for (int i = n - 1; i >= 0; i --) // 从底向上
             for (int j = 0; j <= i; j ++) // 从左向右
+                // 最短路径 dp[i][j] 是由最短路径 dp[i+1][j] 和最短路径 dp[i+1][j+1] 中较小者加上
+                // 当前元素 triangle[i][j] 得到的
                 dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j];
+            
         return dp[0][0];
     }
 
