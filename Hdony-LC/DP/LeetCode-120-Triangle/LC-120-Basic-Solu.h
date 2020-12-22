@@ -91,7 +91,7 @@ public:
                 // 最短路径 dp[i][j] 是由最短路径 dp[i+1][j] 和最短路径 dp[i+1][j+1] 中较小者加上
                 // 当前元素 triangle[i][j] 得到的
                 dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j];
-            
+
         return dp[0][0];
     }
 
