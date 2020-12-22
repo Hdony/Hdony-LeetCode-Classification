@@ -9,6 +9,7 @@ using namespace std;
 /*
  * 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。
  * 相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。
+ *
  */
 
 // 递归
@@ -27,6 +28,15 @@ public:
 
         // triangle[i][j] 的值是由正下方和右下方，两个三角形（最小路径和）中的较小者，加上自身的值得到的
         return min(dfs(triangle, i + 1, j), dfs(triangle, i + 1, j + 1)) + triangle[i][j];
+    }
+
+    void test_case() {
+        vector<vector<int>> triangle = {{1},
+                                        {1,2},
+                                        {3,2,3},
+                                        {1,3,2,3},
+                                        {4,2,3,2,1}};
+        cout << minimumTotal(triangle) << endl;
     }
 };
 
@@ -56,6 +66,15 @@ public:
 
         return memo[i][j] = min(dfs(triangle, i + 1, j), dfs(triangle, i + 1, j + 1)) + triangle[i][j];
     }
+
+    void test_case() {
+        vector<vector<int>> triangle = {{1},
+                                        {1,2},
+                                        {3,2,3},
+                                        {1,3,2,3},
+                                        {4,2,3,2,1}};
+        cout << minimumTotal(triangle) << endl;
+    }
 };
 
 // 动态规划
@@ -64,30 +83,21 @@ public:
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
         // dp[i][j] 表示从点 (i, j) 到底边的最小路径和
-        vector<vector<int>> dp(n, vector<int>(n, 0));
+        // dp[n][j] 将最底层（索引为 n ）初始化为 0
+        vector<vector<int>> dp(n + 1, vector<int>(n, 0));
 
         for (int i = n - 1; i >= 0; i --) // 从底向上
             for (int j = 0; j <= i; j ++) // 从左向右
                 dp[i][j] = min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle[i][j];
         return dp[0][0];
     }
+
+    void test_case() {
+        vector<vector<int>> triangle = {{1},
+                                        {1,2},
+                                        {3,2,3},
+                                        {1,3,2,3},
+                                        {4,2,3,2,1}};
+        cout << minimumTotal(triangle) << endl;
+    }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
