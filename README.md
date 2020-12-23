@@ -16,44 +16,50 @@ Order of Practicing:
 &emsp; LC-343-[整数拆分问题](https://github.com/Hdony/Hdony-LeetCode-Classification/blob/master/Hdony-LC/DP/LeetCode-343-Integer-Break/LC-343-Basic-Solu.h)
 
 
+### 2. Advanced Dynamic Programming -- Knapsack Problem
+
+Order of Practicing:
+
+&emsp; [不完全背包问题](TODO)
 
 
-
-### 2. Backtracking
-
-
-
-
-
-### 3. Graph 
-
-
-
-
-
-### 4. Map and Set
+### 3. Backtracking
 
 
 
 
 
-### 5. Tree
+### 4. Graph 
 
 
 
 
 
-### 6. LinkedList
+### 5. Map and Set
 
 
 
 
 
-### 7. Array
+### 6. Tree
+
+
+
+
+
+### 7. LinkedList
+
+
+
+
+
+### 8. Array
 
 
 ### Reference
 &emsp; [liuyubobobo](https://github.com/liuyubobobo/Play-Leetcode)
+
+&emsp; [算法与数据结构体系课](https://class.imooc.com/sale/datastructure)
   
 &emsp; [LeetCode-cn](https://leetcode-cn.com)
 
