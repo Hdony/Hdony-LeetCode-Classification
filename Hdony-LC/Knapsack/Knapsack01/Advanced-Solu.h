@@ -10,7 +10,6 @@ using namespace std;
 /*
  * 0-1 背包问题变种问题 (1)
  * 完全背包问题：每个物品可以无限使用
- * 以动态规划为例
  */
 
 // 递归
@@ -34,8 +33,7 @@ public:
         int res = dfs(w, v, C, index - 1);
 
         for (int k = 0; k * w[index] <= C; k++)
-            if (C >= w[index])
-                res = max(res, v[index] * k + dfs(w, v, C - w[index] * k, index - 1));
+            res = max(res, v[index] * k + dfs(w, v, C - w[index] * k, index - 1));
 
         return res;
     }
@@ -68,16 +66,15 @@ public:
         int res = dfs(w, v, C, index - 1);
 
         for (int k = 0; k * w[index] <= C; k ++)
-            if (C >= w[index])
-                res = max(res, v[index] * k + dfs(w, v, C - w[index] * k, index - 1));
+            res = max(res, v[index] * k + dfs(w, v, C - w[index] * k, index - 1));
 
         return memo[index][C] = res;
     }
 
     void test_case() {
-        vector<int> w = {3,1,4,1,2,3,5};
-        vector<int> v = {4,6,8,2,1,2,7};
-        int C = 10;
+        vector<int> w = {3,7,4,2,1,5};
+        vector<int> v = {4,6,8,2,1,2};
+        int C = 15;
         cout << bestValue(w, v, C) << endl;
     }
 };
@@ -112,12 +109,57 @@ public:
     }
 
     void test_case() {
-        vector<int> w = {3,1,4,1,2,3,5};
-        vector<int> v = {4,6,8,2,1,2,7};
-        int C = 10;
+        vector<int> w = {3,7,4,2,1,5};
+        vector<int> v = {4,6,8,2,1,2};
+        int C = 15;
         cout << bestValue(w, v, C) << endl;
     }
 };
+
+
+/*
+ * 0-1 背包问题变种问题 (2)
+ * 多重背包问题：每个物品不止一个，有 num(i) 个
+ */
+
+// 递归
+class KnapsackMultiple {
+public:
+
+    int bestValue(vector<int> w, vector<int> v, vector<int> M, int C) {
+        int n = w.size();
+        return dfs(w, v, M, C, n - 1);
+    }
+
+    // index: 当前物品的序号，考虑用 [0...index] 的物品，填充容积为 C 的背包的最大价值
+    int dfs(vector<int> w, vector<int> v, vector<int> M, int C, int index) {
+
+        // 当没有物品或者背包没有空间时，返回的价值为 0
+        if (index < 0 || C <= 0)
+            return 0;
+
+        // 先用 [0...index] 的物品填充 C，若背包总空间可容纳当前物品，
+        // 考虑用 [0...index-1] 的物品填充 C-w[index]，得到的价值与前一种价值取较大者
+        int res = dfs(w, v, M, C, index - 1);
+
+        for (int k = 0; k <= M[index] && k * w[index] <= C; k ++)
+            res = max(res, dfs(w, v, M, index - 1, C - w[index] * k) + v[index] * k);
+
+
+        return res;
+    }
+
+    void test_case() {
+        vector<int> w = {3,7,4,2,1,5};
+        vector<int> M = {1,3,5,4,2,6};
+        vector<int> v = {4,6,8,2,1,2};
+        int C = 15;
+        cout << bestValue(w, v, M, C) << endl;
+    }
+};
+
+
+
 
 
 
