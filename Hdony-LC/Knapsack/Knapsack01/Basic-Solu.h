@@ -33,7 +33,7 @@ public:
         // 考虑用 [0...index-1] 的物品填充 C-w[index]，得到的价值与前一种价值取较大者
         int res = dfs(w, v, C, index - 1);
         if (C >= w[index])
-            res = max(res, v[index] + dfs(w, v, index - 1, C - w[index]));
+            res = max(res, v[index] + dfs(w, v, C - w[index], index - 1));
         return res;
     }
 

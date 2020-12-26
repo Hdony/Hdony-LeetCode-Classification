@@ -16,14 +16,14 @@ using namespace std;
 
 int main() {
 
-    KnapsackTotal knapsackTotal;
-    knapsackTotal.test_case();
+    KnapsackMultiFee knapsackMultiFee;
+    knapsackMultiFee.test_case();
 
-    KnapsackTotal_Memo knapsackTotalMemo;
-    knapsackTotalMemo.test_case();
+    KnapsackMultiFee_Memo knapsackMultiFeeMemo;
+    knapsackMultiFeeMemo.test_case();
 
-    KnapsackTotal_DP knapsackTotalDp;
-    knapsackTotalDp.test_case();
+    KnapsackMultiFee_DP knapsackMultiFeeDp;
+    knapsackMultiFeeDp.test_case();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
