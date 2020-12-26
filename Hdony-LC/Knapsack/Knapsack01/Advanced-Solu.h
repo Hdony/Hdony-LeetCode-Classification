@@ -28,8 +28,6 @@ public:
         if (index < 0 || C <= 0)
             return 0;
 
-        // 先用 [0...index] 的物品填充 C，若背包总空间可容纳当前物品，
-        // 考虑用 [0...index-1] 的物品填充 C-w[index]，得到的价值与前一种价值取较大者
         int res = dfs(w, v, C, index - 1);
 
         for (int k = 0; k * w[index] <= C; k++)
@@ -101,8 +99,7 @@ public:
             for (int j = 0; j <= C; j ++) {
                 dp[i][j] = dp[i - 1][j];
                 for (int k = 0; k * w[i] <= j; k ++)
-                    if (j >= w[i])
-                        dp[i][j] = max(dp[i][j], dp[i - 1][j - k * w[i]] + k * v[i]);
+                    dp[i][j] = max(dp[i][j], dp[i - 1][j - k * w[i]] + k * v[i]);
             }
 
         return dp[n - 1][C];
@@ -138,13 +135,10 @@ public:
         if (index < 0 || C <= 0)
             return 0;
 
-        // 先用 [0...index] 的物品填充 C，若背包总空间可容纳当前物品，
-        // 考虑用 [0...index-1] 的物品填充 C-w[index]，得到的价值与前一种价值取较大者
         int res = dfs(w, v, M, C, index - 1);
 
         for (int k = 0; k <= M[index] && k * w[index] <= C; k ++)
             res = max(res, dfs(w, v, M, index - 1, C - w[index] * k) + v[index] * k);
-
 
         return res;
     }
