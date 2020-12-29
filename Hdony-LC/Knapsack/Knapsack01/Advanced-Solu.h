@@ -350,7 +350,7 @@ public:
         return dfs(w, v, C, n - 1);
     }
 
-    // index: 当前物品的序号，考虑用 [0...group_id] 组中的物品，填充容积为 C 的背包的最大价值
+    // group_id: 当前物品的序号，考虑用 [0...group_id] 组中的物品，填充容积为 C 的背包的最大价值
     int dfs(vector<vector<int>> w, vector<vector<int>> v, int C, int group_id) {
 
         if (group_id < 0 || C <= 0)
