@@ -226,7 +226,7 @@ public:
 
 /*
  * 0-1 背包问题变种问题 (3)
- * 多维费用问题：考虑物品的体积和重量两个维度
+ * 多维费用问题：如考虑物品的体积和重量两个维度
  */
 
 // 递归
@@ -337,10 +337,109 @@ public:
 
 /*
  * 0-1 背包问题变种问题 (4)
- * 物品之间加入更多约束（物品之间可以互相排斥，也可以互相依赖）
+ * 分组背包问题：这些物品被划分为若干组，每组中的物品互相冲突，最多选一件
  */
 
+// 递归
+class KnapsackMultiGroup {
+public:
 
+    int bestValue(vector<vector<int>> w, vector<vector<int>> v, int C) {
 
+        int n = w.size();
+        return dfs(w, v, C, n - 1);
+    }
 
+    // index: 当前物品的序号，考虑用 [0...group_id] 组中的物品，填充容积为 C 的背包的最大价值
+    int dfs(vector<vector<int>> w, vector<vector<int>> v, int C, int group_id) {
 
+        if (group_id < 0 || C <= 0)
+            return 0;
+
+        int res = dfs(w, v, C, group_id - 1);
+
+        for (int k = 0; k < w[group_id].size(); k ++)
+            if (C >= w[group_id][k])
+                res = max(res, v[group_id][k] + dfs(w, v, C - w[group_id][k], group_id - 1));
+
+        return res;
+    }
+
+    void test_case() {
+        vector<vector<int>> w = {{3,1,4}, {1,2}, {3,5,9}};
+        vector<vector<int>> v = {{4,6,8}, {2,1}, {2,7,10}};
+        int C = 10;
+        cout << bestValue(w, v, C) << endl;
+    }
+};
+
+// 记忆化搜索
+class KnapsackMultiGroup_Memo {
+public:
+    vector<vector<int>> memo;
+    int bestValue(vector<vector<int>> w, vector<vector<int>> v, int C) {
+        int n = w.size();
+        memo = vector<vector<int>>(n, vector<int>(C + 1, -1));
+        return dfs(w, v, C, n - 1);
+    }
+
+    int dfs(vector<vector<int>> w, vector<vector<int>> v, int C, int group_id) {
+        if (group_id < 0 || C <= 0)
+            return 0;
+
+        if (memo[group_id][C] != -1)
+            return memo[group_id][C];
+
+        int res = dfs(w, v, C, group_id - 1);
+        for (int k = 0; k < w[group_id].size(); k ++)
+            if (C >= w[group_id][k])
+                res = max(res, v[group_id][k] + dfs(w, v, C - w[group_id][k], group_id - 1));
+
+        return memo[group_id][C] = res;
+    }
+
+    void test_case() {
+        vector<vector<int>> w = {{3,1,4}, {1,2}, {3,5,9}};
+        vector<vector<int>> v = {{4,6,8}, {2,1}, {2,7,10}};
+        int C = 10;
+        cout << bestValue(w, v, C) << endl;
+    }
+};
+
+// 动态规划
+class KnapsackMultiGroup_DP {
+public:
+    int bestValue(vector<vector<int>> w, vector<vector<int>> v, int C) {
+
+        assert(w.size() == v.size());
+        int n = w.size();
+
+        if (n == 0 || C == 0)
+            return 0;
+
+        vector<vector<int>> dp(n, vector<int>(C + 1, -1));
+
+        // 填充第一行
+        for (int j = 0; j <= C; j ++) // j: 一个容积为 j 的背包
+            for (int k = 0; k < w[0].size(); k ++)
+                dp[0][j] = (j >= w[0][k] ? v[0][k] : 0);
+
+        // 填充其余行
+        for (int i = 1; i < n; i ++)
+            for (int j = 0; j <= C; j ++) {
+                dp[i][j] = dp[i - 1][j];
+                for (int k = 0; k < w[1].size(); k ++)
+                    if (j >= w[i][k])
+                        dp[i][j] = max(dp[i][j], dp[i - 1][j - w[i][k]] + v[i][k]);
+            }
+
+        return dp[n - 1][C];
+    }
+
+    void test_case() {
+        vector<vector<int>> w = {{3,1,4}, {1,2}, {3,5,9}};
+        vector<vector<int>> v = {{4,6,8}, {2,1}, {2,7,10}};
+        int C = 10;
+        cout << bestValue(w, v, C) << endl;
+    }
+};
