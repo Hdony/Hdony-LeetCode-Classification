@@ -7,9 +7,18 @@
 using namespace std;
 
 /*
- * LeetCode-387：给定一个字符串，找到它的第一个不重复的字符，并返回它的索引。如果不存在，则返回 -1。
- * PS：假定字符均为小写
+ * 插入排序
+ *
  */
 
+
+class InsertSort {
+public:
+
+    void test_case() {
+        vector<vector<int>> grid = {{1,3,1},{1,5,1},{4,2,1}};
+        cout << minPathSum(grid) << endl;
+    }
+};
 
 

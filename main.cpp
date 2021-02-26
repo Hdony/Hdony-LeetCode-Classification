@@ -8,43 +8,45 @@
 //#include "Hdony-LC/DP/LeetCode-120-Triangle/LC-120-Basic-Solu.h"
 //#include "Hdony-LC/DP/LeetCode-64-Minimum-Path-Sum/LC-64-Basic-Solu.h"
 //#include "Hdony-LC/DP/LeetCode-343-Integer-Break/LC-343-Basic-Solu.h"
-#include "Hdony-LC/DP/LeetCode-343-Integer-Break/LC-343-Basic-Solu.h"
+//#include "Hdony-LC/DP/LeetCode-343-Integer-Break/LC-343-Basic-Solu.h"
 //#include "Hdony-LC/Knapsack/Knapsack01/Basic-Solu.h"
 //#include "Hdony-LC/Knapsack/Knapsack01/Space-Compression.h"
 //#include "Hdony-LC/Knapsack/Knapsack01/Advanced-Solu.h"
 //#include "Hdony-LC/Knapsack/Knapsack01/LC-279-DP-Solu.h"
 
+#include "Hdony-LC/SolutionInOrder/LeetCode-1771-Maximize-Palindrome-Length-From-Subsequences/LC-1771-DP.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1770-Maximum-Score-from-Performing-Multiplication-Operations/LC-1770-DP.h"
+
+
 using namespace std;
 
-void sumArraysOnHost(float *A, float *B, float *C, const int N) {
-    for (int idx = 0; idx < N; idx ++)
-        C[idx] = A[idx] + B[idx];
-}
-
-void initialData(float *ip, int size) {
-    time_t t;
-    srand((unsigned int) time(&t));
-    for (int i = 0; i < size; i ++)
-        ip[i] = (float)(rand() & 0xFF)/10.0f;
-}
+//class Solution {
+//public:
+//    int numberOf2sInRange(int n) {
+//        int cur2Times = 0;
+//        for (int i = 0; i <= n; i ++) {
+//            int curNum = i;
+//            while(curNum > 0) {
+//                int endNum = curNum % 10;
+//                if (endNum == 2) {
+//                    cur2Times ++;
+//                    cout << cur2Times << " " << i << endl;
+//                }
+//                curNum = (curNum - endNum) / 10;
+//            }
+//        }
+//        return cur2Times;
+//    }
+//};
 
 int main() {
 
-    int nElem = 1024;
-    size_t nBytes = nElem * sizeof(float);
-    float *h_A, *h_B, *h_C;
-    h_A = (float *)malloc(nBytes);
-    h_B = (float *)malloc(nBytes);
-    h_C = (float *)malloc(nBytes);
+//    Solution solution;
+//    std::cout << solution.numberOf2sInRange(22);
 
-    initialData(h_A, nElem);
-    initialData(h_B, nElem);
+    MaximumScoreFromPerformingMultiplicationOperations maximumScoreFromPerformingMultiplicationOperations;
 
-    sumArraysOnHost(h_A, h_B, h_C, nElem);
-
-    free(h_A);
-    free(h_B);
-    free(h_C);
+    maximumScoreFromPerformingMultiplicationOperations.test();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;

@@ -13,4 +13,7 @@ add_executable(Hdony_LeetCode_Classification main.cpp
         Hdony-LC/Knapsack/Knapsack01/Basic-Solu.h
         Hdony-LC/Knapsack/Knapsack01/Space-Compression.h
         Hdony-LC/Knapsack/Knapsack01/Advanced-Solu.h
+
+        Hdony-LC/SolutionInOrder/LeetCode-1770-Maximum-Score-from-Performing-Multiplication-Operations/LC-1770-DP.h
+
         )
