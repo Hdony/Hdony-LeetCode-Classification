@@ -17,7 +17,8 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1771-Maximize-Palindrome-Length-From-Subsequences/LC-1771-DP.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1770-Maximum-Score-from-Performing-Multiplication-Operations/LC-1770-DP.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1769-Minimum-Number-of-Operations-to-Move-All-Balls-to-Each-Box/LC-1769-DP.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1768-Merge-Strings-Alternately/LC-1768.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1768-Merge-Strings-Alternately/LC-1768.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1766-Tree-of-Coprimes/LC-1766.h"
 
 
 using namespace std;
