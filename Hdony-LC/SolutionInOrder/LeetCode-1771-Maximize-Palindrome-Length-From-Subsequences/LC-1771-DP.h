@@ -46,7 +46,7 @@ using namespace std;
 // DP
 class MaximizePalindromeLengthFromSubsequences {
 public:
-    int dp[2000][2000];
+    int dp[100][100];
     int longestPalindrome(const string& word1, const string& word2) {
         string s = word1 + word2;
         int m = word1.length(), n = word2.length(), res = 0;
