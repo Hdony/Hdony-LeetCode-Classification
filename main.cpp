@@ -18,8 +18,10 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1770-Maximum-Score-from-Performing-Multiplication-Operations/LC-1770-DP.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1769-Minimum-Number-of-Operations-to-Move-All-Balls-to-Each-Box/LC-1769-DP.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1768-Merge-Strings-Alternately/LC-1768.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1766-Tree-of-Coprimes/LC-1766.h"
-
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1766-Tree-of-Coprimes/LC-1766.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1764-Form-Array-by-Concatenating-Subarrays-of-Another-Array/LC-1764.h"
 
 using namespace std;
 
@@ -47,9 +49,9 @@ int main() {
 //    Solution solution;
 //    std::cout << solution.numberOf2sInRange(22);
 
-    MergeStringsAlternately minimumNumberOfOperationsToMoveAllBallsToEachBox;
+    FormArrayByConcatenatingSubarraysOfAnotherArray solu;
 
-    minimumNumberOfOperationsToMoveAllBallsToEachBox.test();
+    solu.test();
 
     std::cout << "Hello, World!" << std::endl;
     return 0;

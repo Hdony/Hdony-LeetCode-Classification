@@ -20,34 +20,36 @@ using namespace std;
 
 /*
  * 1. 邻接表 adj[a][b] 表示每个节点 a 关联了节点 b 。
- * 2. 准备 50 个栈，以每个节点的 val 为基准，栈内存储的数据为当前数据值对应的层数 deep 及节点序号 i 。
+ * 2. 准备 50 个栈，以每个节点的 val 为基准，栈内存储的数据为当前数据值对应的层数 depth 及节点序号 i 。
  * 3. 遍历到某个节点时，以当前节点为基准，满足 gcd == 1 且层数最深的为最优解，也就是最近的公共祖先节点
  * 4. 满足 gcd 条件可能存在多个节点的数据值，遍历可能的数据值里面，离节点i最近的，通过 level 来识别；这里需要识别数值和 level 两重条件
  * 5. 为啥取栈顶的元素呢，因为我们压栈的时候，level 最大的总是在栈顶的，而这里只需要相同数值里面 level 最大的即可，
  *    因为每轮遍历实际是从根节点到当前节点的，所以计算当前节点时，stack 里存储的应该是所有的祖先节点，只需要在所有祖先节点里面取最近的即可
  */
 
-class Solution {
+class TreeOfCoprimes {
 public:
     vector<vector<int>> adj;
     vector<int> res;
     stack<pair<int, int>> stk[55];
 
-    void dfs(int node, int pre, int depth, vector<int>& nums) {
+    void dfs(int id, int pre, int depth, vector<int>& nums) {
         int level = -1;
         int i = -1;
-        for (int x = 1; x <= 50; x++) {
-            if (!stk[x].empty() && stk[x].top().first > level && __gcd(x, nums[node]) == 1) {
+
+        for (int x = 1; x <= 50; x ++) {
+            if (!stk[x].empty() && stk[x].top().first > level && __gcd(x, nums[id]) == 1) {
                 level = stk[x].top().first;
                 i = stk[x].top().second;
             }
         }
-        res[node] = i;
-        for (auto next : adj[node]) {
+        res[id] = i;
+        cout << "id= " << id << " i= " << i << endl;
+        for (auto next : adj[id]) {
             if (next != pre) {
-                stk[nums[node]].push({depth, node});
-                dfs(next, node, depth+1, nums);
-                stk[nums[node]].pop();
+                stk[nums[id]].push({depth, id});
+                dfs(next, id, depth + 1, nums);
+                stk[nums[id]].pop();
             }
         }
     }
@@ -65,77 +67,14 @@ public:
         dfs(0, -1, 0, nums);
         return res;
     }
-};
-
-
-
-struct Node {
-    int deep, index;
-    Node(int deeps, int indexs) : deep(deeps), index(indexs) {}
-};
-
-class TreeOfCoprimes {
-public:
-    stack<Node> st[100];
-    int n;
-    vector<vector<int>> u;
-
-    void dfs(int root, int fa, vector<int> &nums, int deep, vector<int> &ret) {
-        int ans = -1;
-        int bestdeep = 0;
-        for (int i = 0; i < 100; i++) {
-            if ((__gcd(i, nums[root]) == 1) && !st[i].empty()) {
-                Node now = st[i].top();
-                if (ans == -1 || bestdeep < now.deep) {
-                    ans = now.index;
-                    bestdeep = now.deep;
-                }
-            }
-        }
-        ret[root] = ans;
-
-        st[nums[root]].push(Node(deep, root));
-
-        for (int i = 0; i < u[root].size(); i++) {
-            int son = u[root][i];
-            if (son == fa)
-                continue;
-
-            dfs(son, root, nums, deep + 1, ret);
-        }
-
-        st[nums[root]].pop();
-    }
-
-    vector<int> getCoprimes(vector<int> &nums, vector<vector<int>> &edges) {
-        vector<int> ret;
-        for (auto & i : st)
-            while (!i.empty())
-                i.pop();
-        u.clear();
-        ret.clear();
-
-        n = nums.size();
-        ret.resize(n);
-        u.resize(n);
-
-        for (int i = 0; i < n - 1; i++)
-        {
-            u[edges[i][0]].push_back(edges[i][1]);
-            u[edges[i][1]].push_back(edges[i][0]);
-        }
-
-        dfs(0, -1, nums, 0, ret);
-        return ret;
-    }
-
 
     void test() {
         time_t start = clock();
-        vector<int> nums = {};
-        vector<int> res = getCoprimes("abcd", "123456");
+        vector<int> nums = {5,6,10,2,3,6,15};
+        vector<vector<int>> edges = {{0,1}, {0,2}, {1,3}, {1,4}, {2,5}, {2,6}};
+        vector<int> result = getCoprimes(nums, edges);
         time_t end = clock();
-        for (auto i : res)
+        for (auto i : result)
             cout << "Result = " << i << endl;
         cout <<  "Time = " << double(end - start) / CLOCKS_PER_SEC << endl;
     }
