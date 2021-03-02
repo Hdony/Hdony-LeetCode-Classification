@@ -21,7 +21,7 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1766-Tree-of-Coprimes/LC-1766.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1764-Form-Array-by-Concatenating-Subarrays-of-Another-Array/LC-1764.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1763-Longest-Nice-Substring/LC-1763.h"
 
 using namespace std;
 
@@ -49,7 +49,7 @@ int main() {
 //    Solution solution;
 //    std::cout << solution.numberOf2sInRange(22);
 
-    FormArrayByConcatenatingSubarraysOfAnotherArray solu;
+    LongestNiceSubstring solu;
 
     solu.test();
 
