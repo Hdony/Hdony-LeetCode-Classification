@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -55,15 +56,56 @@ using namespace std;
 
 class LongestNiceSubstring {
 public:
-    string longestNiceSubstring(string s) {
+    class Solution {
+    public:
+        string longestNiceSubstring(string s) {
+            int n = s.length();
+            // 计算 26 字母前缀和
+            vector<vector<int>> lowercase(26, vector<int> (n + 1, 0)),
+                                uppercase(26, vector<int> (n + 1, 0));
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < 26; ++j) {  // 先把 prefix[ch][i] 抄过来
+                    lowercase[j][i + 1] = lowercase[j][i];
+                    uppercase[j][i + 1] = uppercase[j][i];
+                }
+                if ('a' <= s[i] && s[i] <= 'z')
+                    lowercase[tolower(s[i]) - 'a'][i + 1] ++;
+                else
+                    uppercase[tolower(s[i]) - 'a'][i + 1] ++;
+            }
+            // 分治区间
+            int i = 0, j = 0;  // 答案位置
+            stack<pair<int, int>> q;
+            q.push({0, n - 1});
+            while (!q.empty()) {
+                auto top = q.top(); q.pop();
+                int start = top.first, end = top.second;
+                bool valid = true;
+                for (int k = start; k <= end; ++k) {
+                    // 字符 s[k] 在区间 [start, end] 大小写是否都出现
+                    int ch = tolower(s[k]) - 'a';
+                    int lower = lowercase[ch][end + 1] - lowercase[ch][start];
+                    int upper = uppercase[ch][end + 1] - uppercase[ch][start];
+                    // 只要 ch 大小写没同时出现，将区间 [start, end] 拆分为 [start,k-1], [k+1, end]
+                    if (!lower || !upper) {
+                        // 注意下面顺序不可改：要最左侧:"dDzeE" 返回为 dD
+                        q.push({k + 1, end});
+                        q.push({start, k - 1});
+                        valid = false;
+                        break;  // 跳过，此区间 [start, end] 非法
+                    }
+                }
+                if (valid && end - start > j - i) i = start, j = end;
+            }
 
-    }
+            if (i == j) return "";
+            return s.substr(i, j - i + 1);
+        }
+    };
 
     void test() {
         time_t start = clock();
-        vector<vector<int>> groups = {{1,2,3},{3,4}};
-        vector<int> nums = {7,7,1,2,3,2,3,4,7,7};
-        bool res = canChoose(groups, nums);
+        string res = longestNiceSubstring("abDA");
         cout << "Result: " << res << endl;
         time_t end = clock();
         cout <<  "Time = " << double(end - start) / CLOCKS_PER_SEC << endl;
