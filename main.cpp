@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cmath>
-#include <ctime>
+
 //#include "Hdony-LC/Set_Map/LeetCode-387-First-Unique-Character-in-a-String/LC-387-Basic-Solu.h"
 //#include "Hdony-LC/DP/JZOffer-1-Fibonacci-Sequence/JZ-1-Basic-Solu.h"
 //#include "Hdony-LC/DP/LeetCode-70-Climbing-Stairs/LC-70-Basic-Solu.h"
@@ -25,32 +24,9 @@
 
 using namespace std;
 
-//class Solution {
-//public:
-//    int numberOf2sInRange(int n) {
-//        int cur2Times = 0;
-//        for (int i = 0; i <= n; i ++) {
-//            int curNum = i;
-//            while(curNum > 0) {
-//                int endNum = curNum % 10;
-//                if (endNum == 2) {
-//                    cur2Times ++;
-//                    cout << cur2Times << " " << i << endl;
-//                }
-//                curNum = (curNum - endNum) / 10;
-//            }
-//        }
-//        return cur2Times;
-//    }
-//};
-
 int main() {
 
-//    Solution solution;
-//    std::cout << solution.numberOf2sInRange(22);
-
     LongestNiceSubstring solu;
-
     solu.test();
 
     std::cout << "Hello, World!" << std::endl;
