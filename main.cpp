@@ -20,13 +20,16 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1766-Tree-of-Coprimes/LC-1766.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1765-Map-of-Highest-Peak/LC-1765.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1763-Longest-Nice-Substring/LC-1763.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1763-Longest-Nice-Substring/LC-1763.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1761-Minimum-Degree-of-a-Connected-Trio-in-a-Graph/LC-1761.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1760-Minimum-Limit-of-Balls-in-a-Bag/LC-1760.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1759.h"
 
 using namespace std;
 
 int main() {
 
-    LongestNiceSubstring solu;
+    MinimumChangesToMakeAlternatingBinaryString solu;
     solu.test();
 
     std::cout << "Hello, World!" << std::endl;

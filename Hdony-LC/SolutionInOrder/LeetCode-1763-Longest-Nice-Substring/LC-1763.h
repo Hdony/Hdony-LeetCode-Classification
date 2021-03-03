@@ -81,7 +81,7 @@ public:
             auto top = q.top(); q.pop();
             int start = top.first, end = top.second;
             bool valid = true;
-            for (int k = start; k <= end; ++k) {
+            for (int k = start; k <= end; k ++) {
                 // 字符 s[k] 在区间 [start, end] 大小写是否都出现
                 int ch = tolower(s[k]) - 'a';
                 int lower = lowercase[ch][end + 1] - lowercase[ch][start];
@@ -95,10 +95,12 @@ public:
                     break;  // 跳过，此区间 [start, end] 非法
                 }
             }
-            if (valid && end - start > j - i) i = start, j = end;
+            if (valid && end - start > j - i)
+                i = start, j = end;
         }
 
-        if (i == j) return "";
+        if (i == j)
+            return "";
         return s.substr(i, j - i + 1);
     }
 
