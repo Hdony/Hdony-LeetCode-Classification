@@ -23,7 +23,8 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1763-Longest-Nice-Substring/LC-1763.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1761-Minimum-Degree-of-a-Connected-Trio-in-a-Graph/LC-1761.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1760-Minimum-Limit-of-Balls-in-a-Bag/LC-1760.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1759.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Count-Number-of-Homogenous-Substrings/LC-1759.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1758-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1758.h"
 
 using namespace std;
 
