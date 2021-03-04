@@ -23,11 +23,13 @@ class Solution {
             if (nums[i - 1] > nums[i])
                 break;
 
-        if (i == n) return true;
+        if (i == n)
+            return true;
 
         for (int j = i + 1; j < n; j ++)
-            if (nums[j] < nums[j - 1])
+            if (nums[j - 1] < nums[j])
                 return false;
+
         return nums[0] >= nums.back();
     }
 };
