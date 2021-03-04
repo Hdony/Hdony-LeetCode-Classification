@@ -49,7 +49,8 @@ using namespace std;
  * 1 <= s.length <= 105
  * s 由小写字符串组成
  */
-class Solution {
+
+class CountNumberOfHomogenousSubstrings {
 public:
     int countHomogenous(string s) {
         int n = s.size();
@@ -70,18 +71,23 @@ public:
         res %= 1000000007;
         return int(res);
     }
-};
 
-class CountNumberOfHomogenousSubstrings {
-public:
-    int countHomogenous(string s) {
-
+    int countHomogenous_(string s) {
+        // cur is the previous character in type integer, count the number of continuous same character.
+        int res = 0, cur = 0, count = 0, mod = 1e9 + 7;
+        for (int ch : s) {
+            cout << ch << endl;
+            count = ch == cur ? count + 1 : 1;
+            cur = ch;
+            res = (res + count) % mod;
+        }
+        return res;
     }
 
     void test() {
         time_t start = clock();
 
-        int res = countHomogenous("11000011111");
+        int res = countHomogenous_("abbcccaa");
 
         cout << "Result: " << res << endl;
         time_t end = clock();

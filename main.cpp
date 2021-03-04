@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <algorithm>
 //#include "Hdony-LC/Set_Map/LeetCode-387-First-Unique-Character-in-a-String/LC-387-Basic-Solu.h"
 //#include "Hdony-LC/DP/JZOffer-1-Fibonacci-Sequence/JZ-1-Basic-Solu.h"
 //#include "Hdony-LC/DP/LeetCode-70-Climbing-Stairs/LC-70-Basic-Solu.h"
@@ -23,15 +24,21 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1763-Longest-Nice-Substring/LC-1763.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1761-Minimum-Degree-of-a-Connected-Trio-in-a-Graph/LC-1761.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1760-Minimum-Limit-of-Balls-in-a-Bag/LC-1760.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Count-Number-of-Homogenous-Substrings/LC-1759.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Count-Number-of-Homogenous-Substrings/LC-1759.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1758-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1758.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1755-Closest-Subsequence-Sum/LC-1755.h"
 
 using namespace std;
 
 int main() {
 
-    MinimumChangesToMakeAlternatingBinaryString solu;
-    solu.test();
+//    ClosestSubsequenceSum solu;
+//    solu.test();
+
+    string a = "defg";
+    string b = "cf";
+
+    cout << int(a.substr(1) < b.substr(1)) << endl;
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
