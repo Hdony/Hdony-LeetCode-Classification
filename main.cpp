@@ -26,11 +26,14 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1760-Minimum-Limit-of-Balls-in-a-Bag/LC-1760.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1759-Count-Number-of-Homogenous-Substrings/LC-1759.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1758-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1758.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1755-Closest-Subsequence-Sum/LC-1755.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1755-Closest-Subsequence-Sum/LC-1755.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1753-Maximum-Score-From-Removing-Stones/LC-1753.h"
 
 using namespace std;
 
 int main() {
+
+    Solution().maximumScore()
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
