@@ -19,17 +19,21 @@ class Solution {
     bool check(vector<int>& nums) {
 
         int i, n = nums.size();
+
+        // 如果找到了 nums 递减的位置 i，则停止循环
         for (i = 1; i < n; i ++)
             if (nums[i - 1] > nums[i])
                 break;
-
+        // 如果递减的位置是末尾，则直接可以将这个单一元素和前面的序列换位，返回 true
         if (i == n)
             return true;
 
+        // 如果除了 i 还有递减的位置，则说明无论如何换位都不能保证源序列递增
         for (int j = i + 1; j < n; j ++)
-            if (nums[j - 1] < nums[j])
+            if (nums[j - 1] > nums[j])
                 return false;
-
+        // 运行到此，说明 nums 是由两个递增序列组成的，如果前面的递增序列的最小值大于后面递增序列的最大值
+        // 则说明可以对调两个序列的顺序，否则，序列存在交叉，不能转化为递增源序列
         return nums[0] >= nums.back();
     }
 };

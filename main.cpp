@@ -33,7 +33,7 @@ using namespace std;
 
 int main() {
 
-    Solution().maximumScore()
+
 
     std::cout << "Hello, World!" << std::endl;
     return 0;
