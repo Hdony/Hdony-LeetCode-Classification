@@ -32,14 +32,6 @@ using namespace std;
 
 int main() {
 
-//    ClosestSubsequenceSum solu;
-//    solu.test();
-
-    string a = "defg";
-    string b = "cf";
-
-    cout << int(a.substr(1) < b.substr(1)) << endl;
-
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
