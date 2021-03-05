@@ -84,7 +84,7 @@ public:
 
 private:
     // cur: 当前成本，index: 配料的索引
-    // 向成本为 cur，索引为 index 基料 中加入配料 toppings 中的每一种配料
+    // 向成本为 cur 的甜品种，加入配料 toppings[index]
     void dfs(const vector<int>& toppings, int index, int cur, int target) {
 
         if (index == toppings.size()) {
