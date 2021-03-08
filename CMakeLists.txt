@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(Hdony-LeetCode-Classification)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Hdony_LeetCode_Classification main.cpp
         Hdony-LC/Set_Map/LeetCode-387-First-Unique-Character-in-a-String/LC-387-Basic-Solu.h

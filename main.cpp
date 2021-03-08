@@ -1,6 +1,8 @@
 #include <iostream>
 #include <ctime>
 #include <algorithm>
+#include <vector>
+
 //#include "Hdony-LC/Set_Map/LeetCode-387-First-Unique-Character-in-a-String/LC-387-Basic-Solu.h"
 //#include "Hdony-LC/DP/JZOffer-1-Fibonacci-Sequence/JZ-1-Basic-Solu.h"
 //#include "Hdony-LC/DP/LeetCode-70-Climbing-Stairs/LC-70-Basic-Solu.h"
@@ -28,13 +30,29 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1758-Minimum-Changes-To-Make-Alternating-Binary-String/LC-1758.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1755-Closest-Subsequence-Sum/LC-1755.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1753-Maximum-Score-From-Removing-Stones/LC-1753.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1739-Building-Boxes/LC-1739.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1739-Building-Boxes/LC-1739.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1786-Number-of-Restricted-Paths-From-First-to-Last-Node/LC-1786.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1727-Largest-Submatrix-With-Rearrangements/LC-1727.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-300-Longest-Increasing-Subsequence/LC-300.h"
+
 
 using namespace std;
 
 int main() {
 
-    cout << Solution1().minimumBoxes(14);
+//    int n = 7;
+//    vector<vector<int>> edges = {{1,3,1},
+//                                 {4,1,2},
+//                                 {7,3,4},
+//                                 {2,5,3},
+//                                 {5,6,1},
+//                                 {6,7,2},
+//                                 {7,5,3},
+//                                 {2,6,4}};
+//
+//    cout << Solution().countRestrictedPaths(n, edges);
+
+    Solution().test();
 
 
     std::cout << "Hello, World!" << std::endl;

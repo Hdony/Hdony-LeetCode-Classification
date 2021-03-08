@@ -37,28 +37,28 @@
  * 1 <= nums1.length, nums2.length <= 105
  * 1 <= nums1[i], nums2[i] <= 6
  */
+
 #include <iostream>
 #include <vector>
 #include <numeric>
 
 using namespace std;
 
-
-/// Greedy
-/// Time Complexity: O(n)
-/// Space Complexity: O(1)
+// Greedy
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 class Solution {
 public:
     int minOperations(vector<int>& nums1, vector<int>& nums2) {
 
         int n1 = nums1.size(), n2 = nums2.size();
-        if(6 * n1 < n2 || 6 * n2 < n1) return -1;
+        if (6 * n1 < n2 || 6 * n2 < n1) return -1;
 
         int sum1 = accumulate(nums1.begin(), nums1.end(), 0);
         int sum2 = accumulate(nums2.begin(), nums2.end(), 0);
-        if(sum1 == sum2) return 0;
+        if (sum1 == sum2) return 0;
 
-        if(sum1 > sum2){
+        if (sum1 > sum2) {
             swap(n1, n2);
             swap(sum1, sum2);
             swap(nums1, nums2);
