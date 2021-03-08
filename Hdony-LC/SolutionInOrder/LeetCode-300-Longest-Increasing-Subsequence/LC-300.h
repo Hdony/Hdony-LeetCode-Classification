@@ -41,7 +41,7 @@ class Solution {
 public:
     int lengthOfLIS(vector<int> & nums) {
         const int n = nums.size();
-        // 以 nums[i] 结尾的最长递增子序列的长度
+        // dp[i] 表示以 nums[i] 结尾的最长递增子序列的长度
         vector<int> dp(n, 1);
         for (int i = 1; i < n; ++i)
             for (int j = 0; j < i; ++j)

@@ -33,7 +33,8 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1739-Building-Boxes/LC-1739.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1786-Number-of-Restricted-Paths-From-First-to-Last-Node/LC-1786.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1727-Largest-Submatrix-With-Rearrangements/LC-1727.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-300-Longest-Increasing-Subsequence/LC-300.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-300-Longest-Increasing-Subsequence/LC-300.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1713-Minimum-Operations-to-Make-a-Subsequence/LC-1713.h"
 
 
 using namespace std;
@@ -54,7 +55,5 @@ int main() {
 
     Solution1().test();
 
-
-    std::cout << "Hello, World!" << std::endl;
     return 0;
 }
