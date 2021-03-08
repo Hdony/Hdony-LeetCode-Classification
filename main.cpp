@@ -52,7 +52,7 @@ int main() {
 //
 //    cout << Solution().countRestrictedPaths(n, edges);
 
-    Solution().test();
+    Solution1().test();
 
 
     std::cout << "Hello, World!" << std::endl;

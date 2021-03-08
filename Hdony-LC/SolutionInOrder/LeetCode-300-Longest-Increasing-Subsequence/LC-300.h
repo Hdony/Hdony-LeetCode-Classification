@@ -34,6 +34,9 @@
 
 using namespace std;
 
+// DP
+// Time Complexity: O(n^2)
+// Space Complexity: O(n)
 class Solution {
 public:
     int lengthOfLIS(vector<int> & nums) {
@@ -53,7 +56,37 @@ public:
     }
 };
 
+// DP + Greedy + Binary Search
+// Time Comlexity: O(nlogn)
+// Space Complexity: O(n)
+class Solution1 {
+public:
+    int lengthOfLIS(vector<int> & nums) {
+        vector<int> dp; // dp[i]: 长度为 i 的最长上升子序列的最小末尾数字为 dp[i]
+        for (int x : nums) {
+            auto it = lower_bound(dp.begin(), dp.end(), x);
+            if (it == dp.end())
+                dp.push_back(x);
+            else
+                *it = x;
+        }
+        return dp.size(); // 不关心除末尾以外的数字，dp 的长度即为 LIS
+    }
 
+    void test() {
+        vector<int> nums{2,3,1,4,8,5,6};
+        cout << lengthOfLIS(nums);
+        /*
+         * 2
+         * 2 3
+         * 1 3
+         * 1 3 4
+         * 1 3 4 8
+         * 1 3 4 5
+         * 1 3 4 5 6
+         */
+    }
+};
 
 
 
