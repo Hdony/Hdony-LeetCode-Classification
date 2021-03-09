@@ -34,7 +34,9 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1786-Number-of-Restricted-Paths-From-First-to-Last-Node/LC-1786.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1727-Largest-Submatrix-With-Rearrangements/LC-1727.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-300-Longest-Increasing-Subsequence/LC-300.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1713-Minimum-Operations-to-Make-a-Subsequence/LC-1713.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1713-Minimum-Operations-to-Make-a-Subsequence/LC-1713.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1707-Maximum-XOR-With-an-Element-From-Array/LC-1707.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-421-Maximum-XOR-of-Two-Numbers-in-an-Array/LC-421.h"
 
 
 using namespace std;
@@ -53,7 +55,13 @@ int main() {
 //
 //    cout << Solution().countRestrictedPaths(n, edges);
 
-    Solution1().test();
+//    Solution().test();
+    int a = 11; // 1011
+    int b = (a>>2) & 1; // 1: 0001
+    cout << b;
+
+    vector<int> c = {1,2,3,4};
+    c.get()
 
     return 0;
 }
