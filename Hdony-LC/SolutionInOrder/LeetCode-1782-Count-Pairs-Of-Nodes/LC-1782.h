@@ -31,58 +31,63 @@
 
 #include <vector>
 #include <stack>
+#include <unordered_map>
 
 using namespace std;
 
 class Solution {
 public:
     vector<int> countPairs(int n, vector<vector<int>>& edges, vector<int>& queries) {
-        vector<int> sizes(n+1, 0);
-        vector<unordered_map<int, int>> graph(n + 1);
-        for (const vector<int>& edge : edges) {
-            graph[edge[0]][edge[1]]++;
-            graph[edge[1]][edge[0]]++;
-            sizes[edge[0]]++;
-            sizes[edge[1]]++;
+        vector<int> count(n); // count[i] 表示 与节点 i 相连的边数
+        unordered_map<long, int> edgeCount;
+        long M = 20001;
+
+        for (auto edge: edges) {
+            int a = min(edge[0] - 1, edge[1] - 1); // 节点序号从 0 开始
+            int b = max(edge[0] - 1, edge[1] - 1);
+            count[a] ++;
+            count[b] ++;
+            edgeCount[a * M + b] ++; // 节点对 {a,b} 有几个（用哈希值与 {b,a} 区分）
         }
 
-        vector<int> prefix_sum(100001, 0);
-        for (int i = 1; i < sizes.size(); i++) {
-            prefix_sum[sizes[i]]++;
-        }
-        for (int i = 100000; i >= 1; i--) {
-            prefix_sum[i-1] += prefix_sum[i];
-        }
+        auto count2 = count;
+        sort(count2.begin(), count2.end());
 
-        vector<int> answer;
-        for (int query : queries) {
-            int total = 0;
-
-            for (int i = 1; i <= n; i++) {
-                const unordered_map<int, int>& mymap = graph[i];
-
-                int target = query - sizes[i];
-                int current = 0;
-                for (const auto& it : mymap) {
-                    int neighbor = it.first;
-                    if (sizes[neighbor] > target) {
-                        current--;
-                    }
-                    int count = sizes[i] + sizes[neighbor] - it.second;
-                    if (count > query) {
-                        current++;
-                    }
+        vector<int> rets;
+        for (int q : queries) {
+            int sum = 0; // 大于 q 的点对数
+            int j = n - 1;
+            // 利用双指针从两端向中间移动，统计 count[a] + count[b] > q 的节点对数
+            for (int i = 0; i < n; i++) { // i 为左指针，j 为右指针
+                if (i >= j)
+                    sum += n - i - 1;
+                else {
+                    while (i < j && count2[i] + count2[j] > q)
+                        j --;
+                    sum += n - j - 1;
                 }
-                if (sizes[i] > target) {
-                    current--;
-                }
-                current += prefix_sum[target < 0 ? 0 : target+1];
-                total += current;
             }
-            answer.push_back(total / 2);
-        }
 
-        return answer;
+            for (auto [edgeIdx, cnt] : edgeCount) {
+                int a = edgeIdx / M;
+                int b = edgeIdx % M;
+                if (count[a] + count[b] > q && count[a] + count[b] - cnt <= q)
+                    sum --;
+            }
+            rets.push_back(sum);
+        }
+        return rets;
+    }
+
+    void test() {
+        int n = 5;
+        vector<vector<int>> edges = {{1,5},{1,5},{3,4},{2,5},{1,3},{5,1},{2,3},{2,5}};
+        vector<int> queries = {1,2,3,4,5};
+        auto ans = countPairs(n, edges, queries);
+        for (auto i : ans)
+            cout << i << " ";
+        cout << endl;
+        // [10,10,9,8,6]
     }
 };
 
