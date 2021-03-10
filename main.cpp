@@ -58,7 +58,6 @@ int main() {
 //
 //    cout << Solution().countRestrictedPaths(n, edges);
 
-//    Solution().test();
     Solution().test();
 
 
