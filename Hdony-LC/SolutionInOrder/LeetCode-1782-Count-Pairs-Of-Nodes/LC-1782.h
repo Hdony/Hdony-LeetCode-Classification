@@ -68,7 +68,10 @@ public:
                 }
             }
 
-            for (auto [edgeIdx, cnt] : edgeCount) {
+            for (auto edgeC : edgeCount) {
+                long edgeIdx = edgeC.first;
+                int cnt = edgeC.second;
+
                 int a = edgeIdx / M;
                 int b = edgeIdx % M;
                 if (count[a] + count[b] > q && count[a] + count[b] - cnt <= q)
