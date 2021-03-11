@@ -40,7 +40,8 @@
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1776-Car-Fleet-II/LC-1776.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-1787-Make-the-XOR-of-All-Segments-Equal-to-Zero/LC-1787.h"
 //#include "Hdony-LC/SolutionInOrder/LeetCode-32-Longest-Valid-Parentheses/LC-32.h"
-#include "Hdony-LC/SolutionInOrder/LeetCode-1782-Count-Pairs-Of-Nodes/LC-1782.h"
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1782-Count-Pairs-Of-Nodes/LC-1782.h"
+#include "Hdony-LC/SolutionInOrder/LeetCode-1781-Sum-of-Beauty-of-All-Substrings/LC-1781.h"
 
 
 using namespace std;
