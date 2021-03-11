@@ -1,6 +1,6 @@
 
-#include "Hdony-LC/SolutionInOrder/LeetCode-1781-Sum-of-Beauty-of-All-Substrings/LC-1781.h"
-
+//#include "Hdony-LC/SolutionInOrder/LeetCode-1781-Sum-of-Beauty-of-All-Substrings/LC-1781.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-68-I.h"
 
 using namespace std;
 
