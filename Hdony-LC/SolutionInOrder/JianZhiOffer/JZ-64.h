@@ -21,8 +21,11 @@ using namespace std;
 
 class Solution {
 public:
+    int sumNums(int n) {
+        return n == 1 ? 1 : n + sumNums(n-1);
+    }
 
     void test() {
-        cout <<  << endl;
+        cout << sumNums(6) << endl;
     }
 };
