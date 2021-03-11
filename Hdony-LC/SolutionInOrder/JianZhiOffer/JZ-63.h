@@ -23,10 +23,23 @@
 
 using namespace std;
 
+//
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 class Solution {
 public:
+    int maxProfit(vector<int>& prices) {
+        int inf = 1e9;
+        int minprice = inf, maxprofit = 0;
+        for (int price: prices) {
+            maxprofit = max(maxprofit, price - minprice);
+            minprice = min(price, minprice);
+        }
+        return maxprofit;
+    }
 
     void test() {
-        cout <<  << endl;
+        vector<int> prices{14,15,11,13,16,2};
+        cout << maxProfit(prices);
     }
 };
