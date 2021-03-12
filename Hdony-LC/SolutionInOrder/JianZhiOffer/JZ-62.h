@@ -22,10 +22,31 @@
 
 using namespace std;
 
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 class Solution {
+    // 长度为 n 的序列会先删除第 m % n 个元素
+    int f(int n, int m) {
+        if (n == 1)
+            return 0;
+        int x = f(n - 1, m); // 最终会留下第几个元素
+        return (m + x) % n;
+    }
 public:
+    int lastRemaining(int n, int m) {
+        return f(n, m);
+    }
+};
 
-    void test {
-        cout <<  << endl;
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+class Solution1 {
+public:
+    int lastRemaining(int n, int m) {
+        int ans = 0;
+        for (int i = 2; i <= n; ++i) {
+            ans = (m + ans) % i;
+        }
+        return ans;
     }
 };
