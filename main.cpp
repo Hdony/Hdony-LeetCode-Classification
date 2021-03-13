@@ -15,9 +15,9 @@
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-58-I.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-58-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-I.h"
-#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-II.h"
+//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-56-I.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-56-II.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-56-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-55-I.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-55-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-54.h"
@@ -31,6 +31,7 @@ using namespace std;
 int main() {
 
     Solution().test();
+
 
     return 0;
 }
