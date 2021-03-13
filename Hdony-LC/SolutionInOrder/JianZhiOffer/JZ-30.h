@@ -9,10 +9,3 @@
 
 using namespace std;
 
-class Solution {
-public:
-
-    void test {
-        cout <<  << endl;
-    }
-};
