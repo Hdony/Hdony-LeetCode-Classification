@@ -12,10 +12,10 @@
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-60.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-59-I.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-59-II.h"
-#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-58-I.h"
+//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-58-I.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-58-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-I.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-II.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-57-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-56-I.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-56-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-55-I.h"
@@ -30,20 +30,7 @@ using namespace std;
 
 int main() {
 
-//    int n = 7;
-//    vector<vector<int>> edges = {{1,3,1},
-//                                 {4,1,2},
-//                                 {7,3,4},
-//                                 {2,5,3},
-//                                 {5,6,1},
-//                                 {6,7,2},
-//                                 {7,5,3},
-//                                 {2,6,4}};
-//
-//    cout << Solution().countRestrictedPaths(n, edges);
-
     Solution().test();
-
 
     return 0;
 }
