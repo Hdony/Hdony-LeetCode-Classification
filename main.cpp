@@ -22,10 +22,10 @@
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-55-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-54.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-53-I.h"
-#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-53-II.h"
+//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-53-II.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-52.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-51.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-50.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-50.h"
 
 using namespace std;
 
