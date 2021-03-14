@@ -38,13 +38,15 @@ public:
     }
 };
 
+// DP: 小顶堆的方法是先存再排，dp 的方法则是先排再存
 class Solution1 {
 public:
     int nthUglyNumber(int n) {
         vector<int> dp(n, 0);
         dp[0] = 1;
-        int p2 = 0, p3 = 0, p5 = 0;
+        int p2 = 0, p3 = 0, p5 = 0; // 代表的是第几个数的 2 倍、第几个数 3 倍、第几个数 5 倍
 
+        // dp[i] 表示从小到大的顺序的第 i 个丑数
         for (int i = 1; i < n; ++i) {
             dp[i] = min(min(2 * dp[p2], 3 * dp[p3]), 5 * dp[p5]);
             if (dp[i] == 2 * dp[p2])
