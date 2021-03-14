@@ -28,14 +28,14 @@
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-50.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-49.h"
 //#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-48.h"
-#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-47.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-46.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-45.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-44.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-43.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-42.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-41.h"
-//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-40.h"
+//#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-47.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-46.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-45.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-44.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-43.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-42.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-41.h"
+#include "Hdony-LC/SolutionInOrder/JianZhiOffer/JZ-40.h"
 
 using namespace std;
 
